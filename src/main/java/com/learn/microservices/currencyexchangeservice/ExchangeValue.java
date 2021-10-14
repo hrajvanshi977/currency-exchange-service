@@ -1,14 +1,27 @@
 package com.learn.microservices.currencyexchangeservice;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
+@Entity
 public class ExchangeValue {
 
+    @Id
     private Long id;
+
+    @Column(name="currency_from")
     private String from;
+
+    @Column(name="currency_to")
     private String to;
+
     private BigDecimal conversionMultiple;
-    private int port;
+    private String Environment;
+
+    public ExchangeValue() {
+    }
 
     public ExchangeValue(Long id, String from, String to, BigDecimal conversionMultiple) {
         super();
@@ -34,11 +47,11 @@ public class ExchangeValue {
         return conversionMultiple;
     }
 
-    public int getPort() {
-        return port;
+    public String getEnvironment() {
+        return Environment;
     }
 
-    public void setPort(int port) {
-        this.port = port;
+    public void setEnvironment(String environment) {
+        Environment = environment;
     }
 }
